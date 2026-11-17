@@ -1,0 +1,187 @@
+pr_no,pr_line,resolved_item_code,group_id,po_id,decision,route,supplier_id,unit_price,group_value_inr,suggested_supplier_ids,policy_version,reason
+PR-26-00001,1,ITM-1053,REQ-0142,,SOURCING_REQUEST,RFQ,,,258956.59,S032;S033,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00002,1,ITM-1024,REQ-0081,PO-0054,PO,SPOT_PO,S015,311.28,140076,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S015"
+PR-26-00003,1,ITM-1047,REQ-0049,PO-0031,PO,CONTRACT_PO,S029,26.09,122362.1,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00004,1,ITM-1022,REQ-0008,,SOURCING_REQUEST,RFQ,,,220255.6,S014;S013;S016,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00005,1,ITM-1006,REQ-0096,,SOURCING_REQUEST,RFQ,,,124100,S003;S002;S005,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00006,1,ITM-1010,REQ-0018,PO-0010,PO,CONTRACT_PO,S007,1.81,197742.5,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00007,1,ITM-1014,REQ-0041,,SOURCING_REQUEST,RFQ,,,201446.4,S006;S007,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00008,1,ITM-1016,REQ-0143,PO-0080,PO,CONTRACT_PO,S009,115.26,239740.8,,5.0,Rate contract RC-2025-014 with Weldtech Supplies valid and within ceiling
+PR-26-00009,1,ITM-1023,REQ-0022,PO-0013,PO,SPOT_PO,S014,1500.01,210001.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00010,1,ITM-1061,REQ-0079,PO-0052,PO,CONTRACT_PO,S038,178463.6,356927.2,,5.0,Rate contract RC-2026-012 with Sparkle Facility Services valid and within ceiling
+PR-26-00011,1,ITM-1019,REQ-0103,PO-0064,PO,CONTRACT_PO,S009,39.28,86023.2,,5.0,Rate contract RC-2025-014 with Weldtech Supplies valid and within ceiling
+PR-26-00012,1,ITM-1003,REQ-0054,PO-0034,PO,CONTRACT_PO,S001,83.69,98754.2,,5.0,Rate contract RC-2025-011 with Bhosari Steel Traders valid and within ceiling
+PR-26-00013,1,ITM-1041,REQ-0064,PO-0042,PO,CONTRACT_PO,S025,71.5,155870,,5.0,Rate contract RC-2026-009 with Kaveri Corrugators valid and within ceiling
+PR-26-00014,1,ITM-1021,REQ-0116,PO-0067,PO,CONTRACT_PO,S013,202.2,22242,,5.0,Rate contract RC-2026-002 with Industrial Bearings Co valid and within ceiling
+PR-26-00015,1,ITM-1011,REQ-0118,,SOURCING_REQUEST,RFQ,,,257140,S006;S007,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00016,1,ITM-1001,REQ-0026,PO-0017,PO,CONTRACT_PO,S001,6340.39,190211.7,,5.0,Rate contract RC-2025-011 with Bhosari Steel Traders valid and within ceiling
+PR-26-00017,1,ITM-1052,REQ-0138,PO-0078,PO,SPOT_PO,S032,32069.3,64138.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S032"
+PR-26-00018,1,ITM-1013,REQ-0135,PO-0076,PO,CONTRACT_PO,S007,36.18,45586.8,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00019,1,ITM-1002,REQ-0020,PO-0012,PO,CONTRACT_PO,S001,9168.71,137530.65,,5.0,Rate contract RC-2025-011 with Bhosari Steel Traders valid and within ceiling
+PR-26-00020,1,ITM-1015,REQ-0106,PO-0064,PO,CONTRACT_PO,S009,158.51,91935.8,,5.0,Rate contract RC-2025-014 with Weldtech Supplies valid and within ceiling
+PR-26-00021,1,ITM-1049,REQ-0051,PO-0031,PO,CONTRACT_PO,S029,191.31,47827.5,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00022,1,ITM-1009,REQ-0100,PO-0061,PO,CONTRACT_PO,S007,7.06,103005.4,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00023,1,ITM-1048,REQ-0119,PO-0068,PO,CONTRACT_PO,S029,90.32,267347.2,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00024,1,ITM-1007,REQ-0030,PO-0020,PO,SPOT_PO,S001,79.49,9538.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S001"
+PR-26-00025,1,ITM-1022,REQ-0047,PO-0029,PO,SPOT_PO,S014,640.23,121643.7,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00026,1,ITM-1022,REQ-0008,,SOURCING_REQUEST,RFQ,,,220255.6,S014;S013;S016,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00027,1,ITM-1023,REQ-0022,PO-0013,PO,SPOT_PO,S014,1500.01,210001.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00028,1,ITM-1023,REQ-0024,PO-0015,PO,SPOT_PO,S014,1500.01,75000.5,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00029,1,ITM-1022,REQ-0145,PO-0082,PO,SPOT_PO,S014,640.23,153655.2,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00030,1,ITM-1023,REQ-0060,PO-0039,PO,SPOT_PO,S014,1500.01,105000.7,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00031,1,ITM-1009,REQ-0011,PO-0004,PO,CONTRACT_PO,S007,7.06,23227.4,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00032,1,ITM-1009,REQ-0007,PO-0004,PO,CONTRACT_PO,S007,7.06,32546.6,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00033,1,ITM-1009,REQ-0100,PO-0061,PO,CONTRACT_PO,S007,7.06,103005.4,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00034,1,ITM-1009,REQ-0007,PO-0004,PO,CONTRACT_PO,S007,7.06,32546.6,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00035,1,ITM-1009,REQ-0011,PO-0004,PO,CONTRACT_PO,S007,7.06,23227.4,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00036,1,ITM-1039,REQ-0098,PO-0059,PO,SPOT_PO,S023,2655.92,79677.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S023"
+PR-26-00037,1,ITM-1037,REQ-0133,PO-0074,PO,CONTRACT_PO,S021,2439.01,292681.2,,5.0,Rate contract RC-2026-031 with Pneumatic Point valid and within ceiling
+PR-26-00038,1,ITM-1056,REQ-0114,,SOURCING_REQUEST,RFQ,,,711557.1,S036;S035;S037,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00039,1,ITM-1057,REQ-0092,,SOURCING_REQUEST,RFQ,,,222269.58,S036;S037;S035,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00040,1,ITM-1036,REQ-0146,PO-0083,PO,CONTRACT_PO,S021,3537.76,212265.6,,5.0,Rate contract RC-2026-031 with Pneumatic Point valid and within ceiling
+PR-26-00041,1,ITM-1039,REQ-0039,,SOURCING_REQUEST,RFQ,,,231497.6,S023;S024;S021,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00042,1,ITM-1036,REQ-0050,PO-0032,PO,SPOT_PO,S023,4360.8,174432,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S023"
+PR-26-00043,1,ITM-1057,REQ-0099,PO-0060,PO,SPOT_PO,S036,12348.31,37044.93,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S036"
+PR-26-00044,1,ITM-1056,REQ-0114,,SOURCING_REQUEST,RFQ,,,711557.1,S036;S035;S037,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00045,1,ITM-1037,REQ-0131,PO-0074,PO,CONTRACT_PO,S021,2439.01,26829.11,,5.0,Rate contract RC-2026-031 with Pneumatic Point valid and within ceiling
+PR-26-00046,1,ITM-1069,REQ-0083,,SOURCING_REQUEST,CAPEX_SOURCING,,,4561600.84,S045;S047;S020;S048;S046,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00047,1,ITM-1071,REQ-0013,,SOURCING_REQUEST,CAPEX_SOURCING,,,6036704.08,S045;S047;S020;S048;S046,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00048,1,ITM-1070,REQ-0082,,SOURCING_REQUEST,CAPEX_SOURCING,,,2232413.01,S020;S047;S048;S046;S045,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00049,1,ITM-1070,REQ-0112,,SOURCING_REQUEST,CAPEX_SOURCING,,,3720688.35,S020;S047;S048;S046;S045,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00050,1,ITM-1006,REQ-0003,,SOURCING_REQUEST,RFQ,,,80300,S003;S002;S005,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00051,1,ITM-1006,REQ-0096,,SOURCING_REQUEST,RFQ,,,124100,S003;S002;S005,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00052,1,ITM-1025,REQ-0113,,SOURCING_REQUEST,RFQ,,,54600,S014;S015;S013,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00053,1,ITM-1060,REQ-0077,,SOURCING_REQUEST,RFQ,,,203000,S036;S035;S037,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00054,1,ITM-1060,REQ-0034,,SOURCING_REQUEST,RFQ,,,21750,S036;S035;S037,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00055,1,ITM-1029,REQ-0068,PO-0045,PO,EMERGENCY_PO,S020,1589.94,254390.4,,5.0,"Emergency requirement <= 500,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00056,1,ITM-1018,REQ-0070,PO-0046,PO,EMERGENCY_PO,S009,1186.78,210060.06,,5.0,"Emergency requirement <= 500,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S009"
+PR-26-00057,1,ITM-1035,REQ-0009,PO-0005,PO,EMERGENCY_PO,S023,391.82,172400.8,,5.0,"Emergency requirement <= 500,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S023"
+PR-26-00058,1,ITM-1020,REQ-0080,PO-0053,PO,EMERGENCY_PO,S009,210.17,420340,,5.0,"Emergency requirement <= 500,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S009"
+PR-26-00059,1,ITM-1026,REQ-0042,PO-0025,PO,EMERGENCY_PO,S014,106.38,253184.4,,5.0,"Emergency requirement <= 500,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00060,1,ITM-1050,REQ-0137,PO-0077,PO,EMERGENCY_PO,S029,130.83,107280.6,,5.0,"Emergency requirement <= 500,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00061,1,ITM-1044,REQ-0107,PO-0065,PO,SPOT_PO,S027,21.59,14681.2,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S027"
+PR-26-00062,1,ITM-1027,REQ-0093,PO-0054,PO,SPOT_PO,S015,269.44,80832,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S015"
+PR-26-00063,1,ITM-1043,REQ-0095,PO-0058,PO,SPOT_PO,S026,175.9,98504,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S026"
+PR-26-00064,1,ITM-1059,REQ-0144,PO-0081,PO,SPOT_PO,S035,2999.66,179979.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S035"
+PR-26-00065,1,ITM-1005,REQ-0058,PO-0037,PO,SPOT_PO,S003,74.34,91438.2,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S003"
+PR-26-00066,1,ITM-1008,REQ-0038,PO-0023,PO,SPOT_PO,S001,86.04,96364.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S001"
+PR-26-00067,1,ITM-1045,REQ-0028,PO-0016,PO,SPOT_PO,S028,1272.72,142544.64,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S028"
+PR-26-00068,1,ITM-1004,REQ-0012,PO-0007,PO,SPOT_PO,S003,23773.75,47547.5,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S003"
+PR-26-00069,1,ITM-1017,REQ-0015,,SOURCING_REQUEST,RFQ,,,616597.66,S012;S009;S010,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00070,1,ITM-1058,REQ-0053,PO-0033,PO,SPOT_PO,S036,257.79,153385.05,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S036"
+PR-26-00071,1,ITM-1033,REQ-0004,,SOURCING_REQUEST,RFQ,,,395027.34,S020;S017;S019,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00072,1,ITM-1038,REQ-0066,PO-0044,PO,SPOT_PO,S024,166.41,168074.1,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S024"
+PR-26-00073,1,ITM-1054,REQ-0023,PO-0014,PO,SPOT_PO,S032,191.61,84308.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S032"
+PR-26-00074,1,ITM-1031,REQ-0078,PO-0051,PO,SPOT_PO,S019,252.57,191953.2,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S019"
+PR-26-00075,1,ITM-1030,REQ-0052,PO-0030,PO,SPOT_PO,S017,1149.88,149484.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S017"
+PR-26-00076,1,ITM-1051,REQ-0046,PO-0028,PO,SPOT_PO,S029,8.76,108448.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00077,1,ITM-1034,REQ-0134,,SOURCING_REQUEST,RFQ,,,204649.4,S020;S017;S019,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00078,1,ITM-1012,REQ-0084,PO-0055,PO,SPOT_PO,S006,0.77,18618.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S006"
+PR-26-00079,1,ITM-1042,REQ-0027,PO-0018,PO,SPOT_PO,S026,1159.02,150672.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S026"
+PR-26-00080,1,ITM-1040,REQ-0033,PO-0021,PO,SPOT_PO,S023,19152.28,191522.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S023"
+PR-26-00081,1,ITM-1028,REQ-0017,,SOURCING_REQUEST,RFQ,,,550589.4,S019;S017;S020,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00082,1,ITM-1040,REQ-0055,,SOURCING_REQUEST,RFQ,,,383045.6,S023;S024;S021,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00083,1,ITM-1050,REQ-0063,PO-0041,PO,SPOT_PO,S029,130.83,23549.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00084,1,ITM-1026,REQ-0121,PO-0070,PO,SPOT_PO,S014,106.38,136166.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S014"
+PR-26-00085,1,ITM-1031,REQ-0014,PO-0008,PO,SPOT_PO,S019,252.57,123759.3,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S019"
+PR-26-00086,1,ITM-1030,REQ-0052,PO-0030,PO,SPOT_PO,S017,1149.88,149484.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S017"
+PR-26-00087,1,ITM-1059,REQ-0072,PO-0048,PO,SPOT_PO,S035,2999.66,149983,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S035"
+PR-26-00088,1,ITM-1035,REQ-0040,PO-0024,PO,SPOT_PO,S023,391.82,97955,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S023"
+PR-26-00089,1,ITM-1066,REQ-0037,,SOURCING_REQUEST,RFQ,,,336562.15,S043;S044;S042,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00090,1,ITM-1068,REQ-0076,,SOURCING_REQUEST,RFQ,,,703767.87,S043;S044;S042,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00091,1,ITM-1017,REQ-0015,,SOURCING_REQUEST,RFQ,,,616597.66,S012;S009;S010,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00092,1,ITM-1051,REQ-0117,,SOURCING_REQUEST,RFQ,,,537951.6,S029;S030,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00093,1,ITM-1012,REQ-0075,,SOURCING_REQUEST,RFQ,,,329791,S006;S007,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00094,1,ITM-1054,REQ-0061,,SOURCING_REQUEST,RFQ,,,607403.7,S032;S033,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00095,1,ITM-1058,REQ-0067,,SOURCING_REQUEST,RFQ,,,705829.02,S036;S037;S035,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00096,1,ITM-1027,REQ-0149,,SOURCING_REQUEST,RFQ,,,233415,S015;S013;S016,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00097,1,ITM-1066,REQ-0124,,SOURCING_REQUEST,RFQ,,,403874.58,S043;S044;S042,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00098,1,ITM-1008,REQ-0044,,SOURCING_REQUEST,RFQ,,,482684.4,S001;S005;S002,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00099,1,ITM-1042,REQ-0069,,SOURCING_REQUEST,RFP,,,1823513.6,S026;S025;S028;S027,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00100,1,ITM-1034,REQ-0021,,SOURCING_REQUEST,RFP,,,2046494,S020;S017;S019;S018,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00101,1,ITM-1043,REQ-0094,,SOURCING_REQUEST,RFP,,,2059789,S026;S027;S028;S025,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00102,1,ITM-1018,REQ-0032,,SOURCING_REQUEST,RFP,,,1574857.06,S009;S012;S010,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00103,1,ITM-1044,REQ-0029,PO-0019,PO,SPOT_PO,S027,21.59,139903.2,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S027"
+PR-26-00104,1,ITM-1045,REQ-0035,,SOURCING_REQUEST,RFQ,,,291452.88,S028;S027;S025,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00105,1,ITM-1042,REQ-0019,PO-0011,PO,SPOT_PO,S026,1159.02,150672.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S026"
+PR-26-00106,1,ITM-1044,REQ-0005,PO-0003,PO,SPOT_PO,S027,21.59,159118.3,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S027"
+PR-26-00107,1,ITM-1045,REQ-0035,,SOURCING_REQUEST,RFQ,,,291452.88,S028;S027;S025,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00108,1,ITM-1043,REQ-0016,PO-0009,PO,SPOT_PO,S026,175.9,158310,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S026"
+PR-26-00109,1,ITM-1044,REQ-0056,PO-0035,PO,SPOT_PO,S027,21.59,141630.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S027"
+PR-26-00110,1,ITM-1045,REQ-0025,PO-0016,PO,SPOT_PO,S028,1272.72,165453.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S028"
+PR-26-00111,1,ITM-1028,REQ-0073,PO-0049,PO,SPOT_PO,S019,2039.22,122353.2,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S019"
+PR-26-00112,1,ITM-1033,REQ-0004,,SOURCING_REQUEST,RFQ,,,395027.34,S020;S017;S019,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00113,1,ITM-1029,REQ-0125,PO-0071,PO,SPOT_PO,S020,1589.94,79497,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00114,1,ITM-1034,REQ-0010,PO-0006,PO,SPOT_PO,S020,40929.88,122789.64,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00115,1,ITM-1031,REQ-0090,PO-0057,PO,SPOT_PO,S019,252.57,146490.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S019"
+PR-26-00116,1,ITM-1033,REQ-0036,PO-0022,PO,SPOT_PO,S020,65837.89,197513.67,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00117,1,ITM-1030,REQ-0048,PO-0030,PO,SPOT_PO,S017,1149.88,149484.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S017"
+PR-26-00118,1,ITM-1029,REQ-0123,PO-0071,PO,SPOT_PO,S020,1589.94,95396.4,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00119,1,ITM-1028,REQ-0017,,SOURCING_REQUEST,RFQ,,,550589.4,S019;S017;S020,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00120,1,ITM-1031,REQ-0136,,SOURCING_REQUEST,RFQ,,,283487.4,S019;S017;S018,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00121,1,ITM-1005,REQ-0148,,SOURCING_REQUEST,RFQ,,,880929,S003;S002;S001,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00122,1,ITM-1020,REQ-0108,,SOURCING_REQUEST,RFQ,,,861697,S009;S012;S010,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00123,1,ITM-1038,REQ-0147,,SOURCING_REQUEST,RFQ,,,965178,S024;S023;S022,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00124,1,ITM-1004,REQ-0006,,SOURCING_REQUEST,RFQ,,,950950,S003;S002;S005,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00125,1,ITM-1004,REQ-0115,,SOURCING_REQUEST,RFQ,,,950950,S003;S002;S005,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00126,1,ITM-1018,REQ-0032,,SOURCING_REQUEST,RFP,,,1574857.06,S009;S012;S010,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00127,1,ITM-1018,REQ-0032,,SOURCING_REQUEST,RFP,,,1574857.06,S009;S012;S010,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00128,1,ITM-1018,REQ-0032,,SOURCING_REQUEST,RFP,,,1574857.06,S009;S012;S010,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00129,1,ITM-1018,REQ-0032,,SOURCING_REQUEST,RFP,,,1574857.06,S009;S012;S010,5.0,"Requirement value >= 1,000,000 INR requires formal RFP"
+PR-26-00130,1,ITM-1059,REQ-0074,PO-0050,PO,SPOT_PO,S035,2999.66,176979.94,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S035"
+PR-26-00131,1,ITM-1059,REQ-0074,PO-0050,PO,SPOT_PO,S035,2999.66,176979.94,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S035"
+PR-26-00132,1,ITM-1059,REQ-0074,PO-0050,PO,SPOT_PO,S035,2999.66,176979.94,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S035"
+PR-26-00133,1,ITM-1027,REQ-0062,PO-0040,PO,SPOT_PO,S015,269.44,153580.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S015"
+PR-26-00134,1,ITM-1027,REQ-0062,PO-0040,PO,SPOT_PO,S015,269.44,153580.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S015"
+PR-26-00135,1,ITM-1027,REQ-0062,PO-0040,PO,SPOT_PO,S015,269.44,153580.8,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S015"
+PR-26-00136,1,ITM-1051,REQ-0101,PO-0062,PO,SPOT_PO,S029,8.76,121326,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00137,1,ITM-1051,REQ-0101,PO-0062,PO,SPOT_PO,S029,8.76,121326,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00138,1,ITM-1051,REQ-0101,PO-0062,PO,SPOT_PO,S029,8.76,121326,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00139,1,ITM-1051,REQ-0101,PO-0062,PO,SPOT_PO,S029,8.76,121326,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S029"
+PR-26-00140,1,ITM-1040,REQ-0055,,SOURCING_REQUEST,RFQ,,,383045.6,S023;S024;S021,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00141,1,ITM-1040,REQ-0055,,SOURCING_REQUEST,RFQ,,,383045.6,S023;S024;S021,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00142,1,ITM-1040,REQ-0055,,SOURCING_REQUEST,RFQ,,,383045.6,S023;S024;S021,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00143,1,ITM-1040,REQ-0055,,SOURCING_REQUEST,RFQ,,,383045.6,S023;S024;S021,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00144,1,ITM-1038,REQ-0002,PO-0002,PO,SPOT_PO,S024,166.41,126471.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S024"
+PR-26-00145,1,ITM-1038,REQ-0002,PO-0002,PO,SPOT_PO,S024,166.41,126471.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S024"
+PR-26-00146,1,ITM-1038,REQ-0002,PO-0002,PO,SPOT_PO,S024,166.41,126471.6,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S024"
+PR-26-00147,1,ITM-1033,REQ-0043,PO-0026,PO,SPOT_PO,S020,65837.89,65837.89,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00148,1,ITM-1033,REQ-0004,,SOURCING_REQUEST,RFQ,,,395027.34,S020;S017;S019,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00149,1,ITM-1033,REQ-0057,PO-0036,PO,SPOT_PO,S020,65837.89,65837.89,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00150,1,ITM-1058,REQ-0053,PO-0033,PO,SPOT_PO,S036,257.79,153385.05,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S036"
+PR-26-00151,1,ITM-1058,REQ-0067,,SOURCING_REQUEST,RFQ,,,705829.02,S036;S037;S035,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00152,1,ITM-1058,REQ-0071,PO-0047,PO,SPOT_PO,S036,257.79,18818.67,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S036"
+PR-26-00153,1,ITM-1004,REQ-0045,PO-0027,PO,SPOT_PO,S003,23773.75,23773.75,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S003"
+PR-26-00154,1,ITM-1004,REQ-0012,PO-0007,PO,SPOT_PO,S003,23773.75,47547.5,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S003"
+PR-26-00155,1,ITM-1004,REQ-0059,PO-0038,PO,SPOT_PO,S003,23773.75,23773.75,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S003"
+PR-26-00156,1,ITM-1046,REQ-0089,PO-0056,PO,CONTRACT_PO,S029,1091.63,16374.45,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00157,1,ITM-1047,REQ-0091,PO-0056,PO,CONTRACT_PO,S029,26.09,29742.6,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00158,1,ITM-1048,REQ-0097,PO-0056,PO,CONTRACT_PO,S029,90.32,26192.8,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00159,1,ITM-1049,REQ-0102,PO-0063,PO,CONTRACT_PO,S029,191.31,22957.2,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00160,1,ITM-1009,REQ-0120,PO-0069,PO,CONTRACT_PO,S007,7.06,27675.2,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00161,1,ITM-1010,REQ-0122,PO-0069,PO,CONTRACT_PO,S007,1.81,27765.4,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00162,1,ITM-1011,REQ-0126,PO-0069,PO,CONTRACT_PO,S007,5.75,29900,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00163,1,ITM-1013,REQ-0132,PO-0075,PO,CONTRACT_PO,S007,36.18,10130.4,,5.0,Rate contract RC-2026-013 with Precision Fasteners Co valid and within ceiling
+PR-26-00164,1,ITM-1062,REQ-0085,,SOURCING_REQUEST,RFQ,,,241186.93,S040;S039;S041,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00164,2,ITM-1064,REQ-0086,,SOURCING_REQUEST,RFQ,,,342679.06,S039;S038;S040,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00164,3,ITM-1065,REQ-0087,,SOURCING_REQUEST,RFQ,,,263630.9,S042;S043;S044,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00164,4,ITM-1032,REQ-0088,,SOURCING_REQUEST,RFQ,,,117500,S017;S020;S019,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00165,1,ITM-1055,REQ-0130,,SOURCING_REQUEST,RFQ,,,243800,S033;S032,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00165,2,ITM-1060,REQ-0077,,SOURCING_REQUEST,RFQ,,,203000,S036;S035;S037,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00166,1,ITM-1025,REQ-0109,,SOURCING_REQUEST,RFQ,,,54600,S014;S015;S013,5.0,"Requirement value < 1,000,000 INR requires RFQ quotes"
+PR-26-00166,2,ITM-1046,REQ-0110,PO-0066,PO,CONTRACT_PO,S029,1091.63,207409.7,,5.0,Rate contract RC-2026-007 with SafeGuard Industrial Supplies valid and within ceiling
+PR-26-00166,3,ITM-1069,REQ-0111,,SOURCING_REQUEST,CAPEX_SOURCING,,,4561600.84,S045;S047;S020;S048;S046,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00167,1,ITM-1072,REQ-0104,,SOURCING_REQUEST,CAPEX_SOURCING,,,2738200.86,S045;S047;S020;S048;S046,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00167,2,ITM-1073,REQ-0105,,SOURCING_REQUEST,CAPEX_SOURCING,,,1150000,S045;S047;S020;S048;S046,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00168,1,ITM-1071,REQ-0139,,SOURCING_REQUEST,CAPEX_SOURCING,,,1509176.02,S045;S047;S020;S048;S046,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00168,2,ITM-1067,REQ-0140,PO-0079,PO,SPOT_PO,S044,3500.5,17502.5,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S044"
+PR-26-00168,3,ITM-1070,REQ-0141,,SOURCING_REQUEST,CAPEX_SOURCING,,,744137.67,S020;S047;S048;S046;S045,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00169,1,ITM-1063,REQ-0127,PO-0072,PO,SPOT_PO,S039,19522.84,136659.88,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S039"
+PR-26-00169,2,ITM-1070,REQ-0128,,SOURCING_REQUEST,CAPEX_SOURCING,,,744137.67,S020;S047;S048;S046;S045,5.0,Capex item requires sourcing request (up to 5 suppliers); needs capex approval
+PR-26-00169,3,ITM-1002,REQ-0129,PO-0073,PO,CONTRACT_PO,S001,9168.71,183374.2,,5.0,Rate contract RC-2025-011 with Bhosari Steel Traders valid and within ceiling
+PR-26-00170,1,NEW,REQ-0031,,SOURCING_REQUEST,NEW_ITEM_SOURCING,,,141100,,5.0,New item not in item master goes to sourcing; valued at requester estimated price
+PR-26-00171,1,NEW,REQ-0150,,SOURCING_REQUEST,NEW_ITEM_SOURCING,,,105600,,5.0,New item not in item master goes to sourcing; valued at requester estimated price
+PR-26-00172,1,ITM-1020,REQ-0065,PO-0043,PO,SPOT_PO,S009,210.17,0,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S009"
+PR-26-00173,1,ITM-1045,,,SOURCING_REQUEST,NOT_PROCESSED,,,,,5.0,Invalid plant PUN2. Only PUN1 and CHK1 are valid.
+PR-26-00174,1,ITM-1033,REQ-0001,PO-0001,PO,SPOT_PO,S020,65837.89,131675.78,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"
+PR-26-00175,1,ITM-1033,REQ-0001,PO-0001,PO,SPOT_PO,S020,65837.89,131675.78,,5.0,"Spot PO for value < 200,000 INR with active PO history in last 365 days; awarded to 1st preferred supplier S020"

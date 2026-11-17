@@ -1,0 +1,30 @@
+# Task kit & Raw sensitive data (DO NOT COMMIT)
+Cantill_FullStack_Task_Kit/
+Cantill_FullStack_Task_Kit_vf/
+data/
+*.csv
+!submission/*.csv
+*.pdf
+scratch/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,29 @@
+{
+  "name": "corvo-procure-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Corvo Engineering Procurement Decision Automation API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "vitest run",
+    "seed": "node src/scripts/seed.js",
+    "export-decisions": "node src/scripts/exportDecisions.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "corvo-procure-root": "file:..",
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.5.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2",
+    "multer": "^1.4.5-lts.1",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^9.4.0",
+    "vitest": "^2.0.5"
+  }
+}

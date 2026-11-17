@@ -1,0 +1,16 @@
+{
+  "name": "corvo-procure-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Corvo Engineering Autonomous Policy-Driven Procurement System",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "build:all": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start",
+    "test": "npm --prefix backend test",
+    "seed": "npm --prefix backend run seed",
+    "export-decisions": "npm --prefix backend run export-decisions",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev"
+  }
+}

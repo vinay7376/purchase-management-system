@@ -183,25 +183,37 @@ item_code,rank,supplier_id,reference_price,top_3
 During the 2-hour blind test on **Thursday 19 November**:
 
 1. **Run 1 (Process Blind PR Batch under Policy v5.0):**
-   - Upload new PR batch CSV in **Batch Processing & Export** view (or call `POST /api/process-batch`).
+   - Upload the new test PR batch CSV in the **Batch Processing & Export** view (or use `POST /api/process-batch`).
    - Click **Download Decisions CSV**.
-   - Save file as `submission/run1_decisions.csv`.
+   - Save file to the `submission/` folder as `<yourname>__run1.csv` (e.g. `vinay__run1.csv`).
+   - *CLI Alternative:*
+     ```bash
+     node backend/src/scripts/exportDecisions.js path/to/blind_pr_batch.csv 5.0 submission/<yourname>__run1.csv
+     ```
 
 2. **Run 2 (Upload Policy Amendment & Reprocess):**
-   - Navigate to **Policy Management**.
-   - Upload the amendment PDF or paste text into **Propose Policy Amendment**.
-   - Review rule comparison diff.
-   - Click **Approve & Activate**.
-   - Return to **Batch Processing & Export**, select the new policy version, and reprocess the batch.
-   - Download the decisions CSV and save as `submission/run2_decisions.csv`.
+   - Navigate to the **Policy Management & Versioning** view in the UI.
+   - Upload the policy amendment PDF or paste the amendment text into **Propose Policy Amendment**.
+   - Review the rule comparison diff.
+   - Click **Approve & Activate** (activates Policy v5.1).
+   - Return to **Batch Processing & Export**, select Policy v5.1, and reprocess the blind test batch.
+   - Download the decisions CSV and save to `submission/` as `<yourname>__run2.csv` (e.g. `vinay__run2.csv`).
+   - *CLI Alternative:*
+     ```bash
+     node backend/src/scripts/exportDecisions.js path/to/blind_pr_batch.csv 5.1 submission/<yourname>__run2.csv
+     ```
 
 3. **Export Preferred Supplier Lists:**
-   - In **Supplier Ranking Analytics**, enter the required date and click **Export Preferred CSV**.
-   - Save file as `submission/preferred_suppliers.csv`.
+   - In the **Supplier Ranking Analytics** view, select the required date and click **Export Preferred CSV**.
+   - Save file to `submission/` as `<yourname>__preferred.csv` (e.g. `vinay__preferred.csv`).
+   - *CLI Alternative:*
+     ```bash
+     node backend/src/scripts/exportPreferred.js 2026-11-01 submission/<yourname>__preferred.csv
+     ```
 
-4. **Commit & Push Submission:**
+4. **Commit & Push Submission to GitHub (Before 12:00 Noon IST):**
    ```bash
    git add submission/
-   git commit -m "Submit blind test CSV outputs"
+   git commit -m "Submit blind test output CSVs (run1, run2, preferred)"
    git push origin main
    ```

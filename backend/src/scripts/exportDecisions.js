@@ -18,44 +18,69 @@ async function runExport() {
   try {
     await connectDB();
 
+    const args = process.argv.slice(2);
+    const inputArg = args[0];
+    const policyVersionArg = args[1] || '5.0';
+    const outputArg = args[2];
+
     const [items, suppliers, contracts, poHistory, policyDoc] = await Promise.all([
       Item.find().lean(),
       Supplier.find().lean(),
       Contract.find().lean(),
       POHistory.find().lean(),
-      Policy.findOne({ version: '5.0' }).lean(),
+      Policy.findOne({ version: policyVersionArg }).lean(),
     ]);
 
     if (!policyDoc) {
-      throw new Error('Policy 5.0 not found in database.');
+      throw new Error(`Policy ${policyVersionArg} not found in database.`);
     }
 
-    const kitDir = process.env.DATA_DIR || path.resolve(__dirname, '../../../Cantill_FullStack_Task_Kit');
-    const prBatchFile = path.join(kitDir, 'pr_batches', 'sample_pr_batch.csv');
-    const records = parse(fs.readFileSync(prBatchFile, 'utf-8'), { columns: true, skip_empty_lines: true, trim: true });
+    let prBatchFile;
+    if (inputArg && fs.existsSync(inputArg)) {
+      prBatchFile = inputArg;
+    } else {
+      const kitDir = process.env.DATA_DIR || path.resolve(__dirname, '../../../Cantill_FullStack_Task_Kit');
+      prBatchFile = path.join(kitDir, 'pr_batches', 'sample_pr_batch.csv');
+      if (!fs.existsSync(prBatchFile)) {
+        // Fallback to local
+        prBatchFile = path.resolve(__dirname, '../../../../Cantill_FullStack_Task_Kit_vf/Cantill_FullStack_Task_Kit/pr_batches/sample_pr_batch.csv');
+      }
+    }
 
-    const rawLines = records.map((r) => ({
-      pr_no: r.pr_no,
-      pr_line: parseInt(r.pr_line, 10),
-      created_at: new Date(r.created_at),
-      requester: r.requester || 'Requester',
-      department: r.department || 'Operations',
-      plant: r.plant,
-      item_code: r.item_code || undefined,
-      description: r.description,
-      quantity: parseFloat(r.quantity),
-      uom: r.uom,
-      estimated_unit_price: r.estimated_unit_price ? parseFloat(r.estimated_unit_price) : undefined,
-      need_by_date: r.need_by_date,
-      urgency: r.urgency || 'Normal',
-    }));
+    if (!fs.existsSync(prBatchFile)) {
+      throw new Error(`PR batch file not found: ${prBatchFile}`);
+    }
 
-    const decisionService = new DecisionService(
-      items,
-      suppliers,
-      contracts,
-      poHistory
-    );
+    let fileContent = fs.readFileSync(prBatchFile, 'utf-8');
+    if (fileContent.charCodeAt(0) === 0xFEFF) {
+      fileContent = fileContent.substring(1);
+    }
+
+    const records = parse(fileContent, {
+      columns: (headers) => headers.map((h) => h.trim().toLowerCase().replace(/[\s-]+/g, '_')),
+      skip_empty_lines: true,
+      trim: true,
+    });
+
+    const rawLines = records
+      .filter((r) => r.pr_no && r.pr_line)
+      .map((r) => ({
+        pr_no: r.pr_no,
+        pr_line: parseInt(r.pr_line, 10),
+        created_at: new Date(r.created_at),
+        requester: r.requester || 'Requester',
+        department: r.department || 'Operations',
+        plant: r.plant,
+        item_code: r.item_code || undefined,
+        description: r.description,
+        quantity: parseFloat(r.quantity),
+        uom: r.uom,
+        estimated_unit_price: r.estimated_unit_price ? parseFloat(r.estimated_unit_price) : undefined,
+        need_by_date: r.need_by_date,
+        urgency: r.urgency || 'Normal',
+      }));
+
+    const decisionService = new DecisionService(items, suppliers, contracts, poHistory);
     const result = decisionService.processBatch(rawLines, policyDoc);
 
     const csvOutput = stringify(result.records, {
@@ -82,7 +107,7 @@ async function runExport() {
       fs.mkdirSync(submissionDir, { recursive: true });
     }
 
-    const outputFile = path.join(submissionDir, 'sample_pr_batch_decisions.csv');
+    const outputFile = outputArg ? path.resolve(process.cwd(), outputArg) : path.join(submissionDir, 'sample_pr_batch_decisions.csv');
     fs.writeFileSync(outputFile, csvOutput, 'utf-8');
 
     console.log(`[Export] Successfully exported ${result.records.length} records to ${outputFile}`);

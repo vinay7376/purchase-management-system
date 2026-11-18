@@ -37,7 +37,7 @@ export const ChatIntakeView = () => {
     'Need 1 drinking water purifier 50 LPH for Bhosari by 2026-11-20',
   ];
 
-  const handleSend = async (textToSend) => {
+  const handleSend = async (textToSend, isNewPrompt = false) => {
     const text = textToSend || input;
     if (!text.trim() || loading) return;
 
@@ -52,7 +52,8 @@ export const ChatIntakeView = () => {
     setLoading(true);
 
     try {
-      const state = await api.sendChatMessage(text, currentState);
+      const stateToPass = isNewPrompt ? {} : currentState;
+      const state = await api.sendChatMessage(text, stateToPass);
       setCurrentState(state);
 
       const assistantMsg = {
@@ -194,7 +195,7 @@ export const ChatIntakeView = () => {
             {samplePrompts.map((p, idx) => (
               <button
                 key={idx}
-                onClick={() => handleSend(p)}
+                onClick={() => handleSend(p, true)}
                 className="px-2.5 py-1 rounded-full bg-white border border-slate-200/90 text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors whitespace-nowrap text-[11px] shadow-2xs active:scale-95"
               >
                 {p}

@@ -13,16 +13,20 @@ export class AIService {
     const lower = text.toLowerCase();
     const matcher = new ItemMatcher(items);
 
+    // If message starts a brand new requisition, reset previous draft state
+    const isNewRequisition = /^\s*(need\b|require\b|urgent need\b|please order\b|i need\b|request for\b)/i.test(text);
+    const baseState = isNewRequisition ? {} : (existingState || {});
+
     const state = {
-      itemDescription: existingState.itemDescription,
-      matchedItemCode: existingState.matchedItemCode,
-      isNewItem: existingState.isNewItem,
-      quantity: existingState.quantity,
-      uom: existingState.uom,
-      plant: existingState.plant,
-      need_by_date: existingState.need_by_date,
-      urgency: existingState.urgency || 'Normal',
-      estimated_unit_price: existingState.estimated_unit_price,
+      itemDescription: baseState.itemDescription,
+      matchedItemCode: baseState.matchedItemCode,
+      isNewItem: baseState.isNewItem,
+      quantity: baseState.quantity,
+      uom: baseState.uom,
+      plant: baseState.plant,
+      need_by_date: baseState.need_by_date,
+      urgency: baseState.urgency || 'Normal',
+      estimated_unit_price: baseState.estimated_unit_price,
       isComplete: false,
       missingFields: [],
       assistantResponse: '',
@@ -43,7 +47,7 @@ export class AIService {
     // 3. Quantity & UOM Extraction (e.g. "200 nos", "200 nitrile gloves", "50 kg", "10 ltr")
     const qtyRegex = /\b([0-9]+(?:\.[0-9]+)?)\s*(nos|bkt|kg|ltr|mtr|box|roll|pcs|job|bottles?|pairs?|units?)?\b/i;
     const qtyMatch = text.match(qtyRegex);
-    if (qtyMatch && !state.quantity) {
+    if (qtyMatch) {
       state.quantity = parseFloat(qtyMatch[1]);
       if (qtyMatch[2]) {
         const rawUom = qtyMatch[2].toUpperCase();
@@ -111,7 +115,11 @@ export class AIService {
     }
 
     // Check estimated price if new item
-    const priceMatch = text.match(/\b(?:est|rate|price|cost|approx|inr|rs\.?)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)\b/i);
+    const cleanNumText = text.replace(/,/g, '');
+    const priceKeywordMatch = cleanNumText.match(/\b(?:est|rate|price|cost|approx|inr|rs\.?)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)\b/i);
+    const pureNumMatch = state.isNewItem && cleanNumText.match(/^\s*(?:rs\.?|inr)?\s*([0-9]+(?:\.[0-9]+)?)\s*$/i);
+    const priceMatch = priceKeywordMatch || pureNumMatch;
+
     if (priceMatch && state.isNewItem) {
       state.estimated_unit_price = parseFloat(priceMatch[1]);
     }

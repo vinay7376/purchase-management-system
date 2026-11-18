@@ -1,10 +1,11 @@
 # Stage 1: Build Frontend
 FROM node:20-alpine AS frontend-builder
-WORKDIR /app/frontend
-COPY frontend/package*.json ./
-RUN npm ci
-COPY frontend/ ./
-RUN npm run build
+WORKDIR /app
+COPY package.json ./
+COPY frontend/package*.json ./frontend/
+RUN cd frontend && npm install
+COPY frontend/ ./frontend/
+RUN cd frontend && npm run build
 
 # Stage 2: Production Runner
 FROM node:20-alpine AS runner
@@ -13,9 +14,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=5000
 
-# Install production dependencies for backend
+COPY package.json ./
 COPY backend/package*.json ./backend/
-RUN cd backend && npm ci --only=production
+RUN cd backend && npm install --omit=dev
 
 # Copy backend source (pure JavaScript ES Modules)
 COPY backend/src ./backend/src

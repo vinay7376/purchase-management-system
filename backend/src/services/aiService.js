@@ -44,17 +44,32 @@ export class AIService {
       state.urgency = 'Emergency';
     }
 
-    // 3. Quantity & UOM Extraction (e.g. "200 nos", "200 nitrile gloves", "50 kg", "10 ltr")
+    // 3. Price Extraction (for New Item or explicit price keywords)
+    const cleanNumText = text.replace(/,/g, '');
+    const priceKeywordMatch = cleanNumText.match(/\b(?:est|rate|price|cost|approx|inr|rs\.?)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)\b/i);
+    const pureNumMatch = Boolean(state.isNewItem && !state.estimated_unit_price) && cleanNumText.match(/^\s*(?:rs\.?|inr)?\s*([0-9]+(?:\.[0-9]+)?)\s*$/i);
+    const priceMatch = priceKeywordMatch || pureNumMatch;
+
+    if (priceMatch && state.isNewItem) {
+      state.estimated_unit_price = parseFloat(priceMatch[1]);
+    }
+
+    // 4. Quantity & UOM Extraction (e.g. "200 nos", "200 nitrile gloves", "50 kg", "10 ltr")
+    const isExplicitPrice = Boolean(priceMatch && (priceKeywordMatch || pureNumMatch));
     const qtyRegex = /\b([0-9]+(?:\.[0-9]+)?)\s*(nos|bkt|kg|ltr|mtr|box|roll|pcs|job|bottles?|pairs?|units?)?\b/i;
     const qtyMatch = text.match(qtyRegex);
-    if (qtyMatch) {
-      state.quantity = parseFloat(qtyMatch[1]);
-      if (qtyMatch[2]) {
-        const rawUom = qtyMatch[2].toUpperCase();
-        if (['NOS', 'BKT', 'KG', 'LTR', 'MTR', 'JOB'].includes(rawUom)) {
-          state.uom = rawUom;
-        } else if (['PCS', 'UNITS', 'PAIRS'].includes(rawUom)) {
-          state.uom = 'NOS';
+
+    if (qtyMatch && (!isExplicitPrice || isNewRequisition)) {
+      const hasExplicitUom = Boolean(qtyMatch[2]);
+      if (!state.quantity || isNewRequisition || hasExplicitUom) {
+        state.quantity = parseFloat(qtyMatch[1]);
+        if (qtyMatch[2]) {
+          const rawUom = qtyMatch[2].toUpperCase();
+          if (['NOS', 'BKT', 'KG', 'LTR', 'MTR', 'JOB'].includes(rawUom)) {
+            state.uom = rawUom;
+          } else if (['PCS', 'UNITS', 'PAIRS'].includes(rawUom)) {
+            state.uom = 'NOS';
+          }
         }
       }
     }
@@ -114,15 +129,7 @@ export class AIService {
       }
     }
 
-    // Check estimated price if new item
-    const cleanNumText = text.replace(/,/g, '');
-    const priceKeywordMatch = cleanNumText.match(/\b(?:est|rate|price|cost|approx|inr|rs\.?)\s*[:=]?\s*([0-9]+(?:\.[0-9]+)?)\b/i);
-    const pureNumMatch = state.isNewItem && cleanNumText.match(/^\s*(?:rs\.?|inr)?\s*([0-9]+(?:\.[0-9]+)?)\s*$/i);
-    const priceMatch = priceKeywordMatch || pureNumMatch;
 
-    if (priceMatch && state.isNewItem) {
-      state.estimated_unit_price = parseFloat(priceMatch[1]);
-    }
 
     // Determine missing required fields
     const missing = [];

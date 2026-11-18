@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,9 +11,16 @@ export async function connectDB() {
   const uri = process.env.MONGODB_URI;
 
   if (uri) {
+    if (uri.startsWith('mongodb+srv://')) {
+      try {
+        // Ensure SRV records resolve on Windows environments where local routers block RFC 2782 SRV queries
+        dns.setServers(['8.8.8.8', '1.1.1.1']);
+      } catch (_) {}
+    }
+
     try {
       console.log(`[DB] Attempting connection to MongoDB at: ${uri.replace(/\/\/.*@/, '//<credentials>@')}`);
-      await mongoose.connect(uri, { serverSelectionTimeoutMS: 4000 });
+      await mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 });
       console.log('[DB] Successfully connected to configured MongoDB');
       return;
     } catch (err) {

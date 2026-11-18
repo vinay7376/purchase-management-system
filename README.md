@@ -1,34 +1,42 @@
-# Corvo Engineering — Policy-Driven Autonomous Procurement Web Application
+# Corvo Engineering — Autonomous Policy-Driven Procurement System
 
+[![Live Demo](https://img.shields.io/badge/Hosted%20App-Render%20Live-brightgreen.svg)](https://purchase-management-system-ath6.onrender.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/vinay7376/purchase-management-system.git)
 [![Vitest](https://img.shields.io/badge/tests-28%20passed-brightgreen.svg)]()
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B%20%2F%20ESM-yellow.svg)]()
 [![React](https://img.shields.io/badge/React-18.3-cyan.svg)]()
 [![Node](https://img.shields.io/badge/Node-20%2B-green.svg)]()
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)]()
 
-Production-quality, policy-driven procurement automation web application built for **Corvo Engineering Pvt Ltd** as part of the **Cantill.ai Full-stack Intern Coding Challenge**.
+**Candidate / Author:** Vinay Pal (Full-Stack Engineering Candidate)  
+**Task:** Cantill.ai Full-stack Intern Coding Challenge (Round 1)  
+**Hosted Application:** [https://purchase-management-system-ath6.onrender.com/](https://purchase-management-system-ath6.onrender.com/)  
+**Public Repository:** [https://github.com/vinay7376/purchase-management-system.git](https://github.com/vinay7376/purchase-management-system.git)  
 
 ---
 
-## 1. System Overview
+## 1. Executive Summary
 
-Corvo Engineering operates manufacturing plants at **PUN1 (Bhosari)** and **CHK1 (Chakan)**. Every day, employees raise purchase requisitions across factories. This system automates PR-to-PO procurement by applying **Corvo Procurement Policy Version 5.0** (and future amendments) deterministically:
+Corvo Engineering Pvt Ltd operates industrial manufacturing facilities at **PUN1 (Bhosari)** and **CHK1 (Chakan)**. Every day, employees across the factories raise purchase requisitions (PRs). 
 
-- **Employee Chat Intake:** Conversational interface extracting item, quantity, plant, need-by date, and urgency with targeted follow-up questions for missing data.
-- **Policy as Data (Zero Code Change):** Procurement rules, thresholds, and plant/category restrictions are stored as versioned JSON documents with effective dates.
-- **Dynamic Decision Engine:** Executes item matching, PR clubbing (14-day creation / 7-day need-by windows), deterministic valuation, contract ceiling enforcement, and rule evaluation (Capex, Contract PO, Emergency PO, Spot PO, RFQ, RFP).
-- **Multi-Factor Preferred Supplier Ranking:** Computes explainable rankings across 548-day history based on purchase frequency (35%), recency (25%), contract history (15%), on-time delivery (15%), and quality rating (10%).
-- **Rate Contracts & Ceilings:** Enforces contract validity and ceiling room; recognizes **PDF-only contracts** (`RC-2026-031` and `RC-2026-033`).
-- **PO Consolidation:** Consolidates eligible PO requirements sharing supplier, plant, and route within a 24-hour window into single purchase orders.
-- **Buyer Workspace:** Full governance console with KPI telemetry, detailed requirement inspection, approvals, auditable overrides with mandatory written justifications, and audit trails.
+This production-grade full-stack web application completely automates the PR-to-PO procurement pipeline according to **Corvo Procurement Policy Version 5.0**:
+- **Conversational Chat Intake (not forms):** Requesters type natural language requests (e.g., *"Need 200 nitrile gloves for Chakan by next Friday"*). The assistant extracts entities, matches catalog items, asks targeted follow-ups for missing details, and confirms before PR creation.
+- **Policy as Data (Zero Code Change):** Procurement rules, thresholds, and routing logic are stored as declarative Abstract Syntax Trees (AST) in MongoDB. When a policy amendment is uploaded (via PDF or plain text), the system parses the changes, shows a plain-language rule comparison diff, and activates the new version upon human approval without touching application code.
+- **Deterministic Decision Engine:** Implements non-transitive PR clubbing (14-day creation / 7-day need-by windows), dynamic contract ceiling deduction ($T_{req}$ order), valuation hierarchy, and deterministic policy hierarchy evaluation (Capex, Contract PO, Emergency PO, Spot PO, RFQ, RFP).
+- **Multi-Factor Preferred Supplier Ranking:** Computes explainable rankings across a 548-day window based on purchase frequency (35%), recency (25%), contract history (15%), on-time delivery (15%), and quality rating (10%).
+- **24-Hour Purchase Order Consolidation:** Consolidates eligible requirements sharing supplier, plant, and route within 24.0 hours into single PO IDs.
+- **Buyer Governance Workspace:** Complete inspection cockpit with KPI telemetry, clause citations, approvals, auditable overrides with mandatory written justifications, and tamper-evident audit logs.
 
 ---
 
 ## 2. Technology Stack
 
-- **Backend:** Node.js, Express.js, JavaScript (ES6+ with ES Modules), Mongoose, MongoDB.
-  - Automatic fallback to embedded in-memory MongoDB (`mongodb-memory-server`) if remote database is not configured.
+- **Backend:** Node.js, Express.js, JavaScript (ES6+ with ES Modules), Mongoose, MongoDB Atlas.
+  - Production persistent storage via MongoDB Atlas (`process.env.MONGODB_URI`).
+  - Automatic zero-configuration fallback to embedded `mongodb-memory-server` for local offline test runs.
+  - DNS SRV resolver configured with Google/Cloudflare upstream DNS to ensure cross-platform connectivity.
 - **Frontend:** React 18, Vite, JavaScript (ES6+), JSX, Tailwind CSS, Lucide Icons.
+  - Single Unified Service: The Express backend statically serves the compiled React single-page application from `frontend/dist`.
 - **File Processing:** `csv-parse`, `csv-stringify`, `pdf-parse`, `multer`.
 - **Testing:** Vitest (28 automated regression tests covering all 14 worked decisions, preferred rankings, boundary conditions, and amendments).
 - **Containerization:** Multi-stage `Dockerfile` and `docker-compose.yml`.
@@ -40,14 +48,14 @@ Corvo Engineering operates manufacturing plants at **PUN1 (Bhosari)** and **CHK1
 ### Prerequisites
 - Node.js $\ge 18$
 - npm $\ge 9$
-- (Optional) Docker and Docker Compose
+- (Optional) Docker & Docker Compose
 
-### Option A: Local Run (No Docker Needed)
+### Option A: Local Run (Node & npm)
 
 1. **Clone the repository:**
    ```bash
-   git clone <REPO_URL>
-   cd <REPO_NAME>
+   git clone https://github.com/vinay7376/purchase-management-system.git
+   cd purchase-management-system
    ```
 
 2. **Install all dependencies:**
@@ -55,7 +63,7 @@ Corvo Engineering operates manufacturing plants at **PUN1 (Bhosari)** and **CHK1
    npm run install:all
    ```
 
-3. **Build applications:**
+3. **Build frontend production bundle:**
    ```bash
    npm run build:all
    ```
@@ -64,7 +72,6 @@ Corvo Engineering operates manufacturing plants at **PUN1 (Bhosari)** and **CHK1
    ```bash
    npm --prefix backend run seed
    ```
-   *(Note: If database is empty, the server also attempts automatic seeding on startup if data kit is available).*
 
 5. **Start application:**
    ```bash
@@ -83,55 +90,43 @@ Access the application at `http://localhost:5000`.
 
 ---
 
-## 4. Running Automated Tests
+## 4. Automated Test Suite (28 / 28 Passed)
 
 Run the full automated test suite:
 ```bash
 npm test
 ```
-Or directly in `backend/`:
+Or directly within the backend directory:
 ```bash
 cd backend
 npm test
 ```
 
-### Test Suite Coverage:
-- **`tests/worked_examples.test.js` (17 tests):**
-  - Decision 1 (Contract PO: PR-26-00019/1 $\to$ CONTRACT_PO, S001)
-  - Decision 2 (PDF-only contract: PR-26-00045/1 $\to$ CONTRACT_PO, S021, RC-2026-031)
-  - Decision 3 (Contract ceiling exhausted: PR-26-00004 & 00026 $\to$ RFQ, S014, S013, S016)
-  - Decision 4 (Two contracts: PR-26-00034 & 00032 $\to$ CONTRACT_PO, S007)
-  - Decision 5 (Split PRs clubbed: PR-26-00146, 00144, 00145 $\to$ SPOT_PO, S024)
-  - Decision 6 (Different plants preventing clubbing: PUN1 vs CHK1)
-  - Decision 7 (Free-text item matched: "hyd hose 1/2 inch 2 wire" $\to$ SPOT_PO, S023)
-  - Decision 8 (Emergency PO: PR-26-00059/1 $\to$ EMERGENCY_PO, S014)
-  - Decision 9 (RFQ above PO limit: "CMM calibration service" $\to$ RFQ, S043, S044, S042)
-  - Decision 10 (RFQ small never bought: PR-26-00050/1 $\to$ RFQ, S003, S002, S005)
-  - Decision 11 (RFP: PR-26-00100/1 $\to$ RFP, S020, S017, S019, S018)
-  - Decision 12 (Capex sourcing: PR-26-00047/1 $\to$ CAPEX_SOURCING, S045, S047, S020, S048, S046)
-  - Decision 13 (New item: PR-26-00170/1 $\to$ NEW_ITEM_SOURCING, no suggestions)
-  - Decision 14 (PO consolidation: shared PO ID across separate requirements)
-  - Preferred Supplier Rankings (Worked Example 1: ITM-1048, Example 2: ITM-1036, Example 3: ITM-1016)
-- **`tests/boundary_and_rules.test.js` (8 tests):**
-  - Exactly ₹200,000 threshold boundary
-  - Exactly ₹500,000 emergency threshold boundary
-  - Exactly ₹1,000,000 RFP threshold boundary
-  - Exactly 14.0-day PR creation clubbing boundary
-  - Exactly 7.0-day need-by date clubbing boundary
-  - Exactly 24.0-hour PO consolidation window
-  - Invalid plant handling (PUN2 marked `NOT_PROCESSED`)
-  - Missing price on new items marked `NOT_PROCESSED`
-- **`tests/policy_amendment.test.js` (3 tests):**
-  - Parsing natural language amendment text into structured rules
-  - Decision change verification between Policy v5.0 and v5.1 without application code change
-  - Unaffected plant isolation (PUN1 preserves baseline rules while CHK1 updates)
+### Test Coverage Highlights:
+- **`tests/worked_examples.test.js` (17 tests — 100% passed):**
+  - All 14 worked decisions from `Worked_Examples.pdf` verified against actual kit data.
+  - All 3 preferred supplier rankings (`ITM-1048`, `ITM-1036`, `ITM-1016`) verified down to individual supplier IDs, scores, and ranks.
+- **`tests/boundary_and_rules.test.js` (8 tests — 100% passed):**
+  - Exact ₹200,000 threshold boundary (₹199,999 Spot PO vs ₹200,000 RFQ).
+  - Exact ₹500,000 emergency threshold boundary (₹500,000 Emergency PO vs ₹500,001 RFQ).
+  - Exact ₹1,000,000 RFP threshold boundary.
+  - Exactly 14.0 days creation date PR clubbing limit.
+  - Exactly 7.0 days need-by date PR clubbing limit.
+  - Exactly 24.0 hours PO consolidation window.
+  - Invalid plant rejection (`PUN2` routed to `NOT_PROCESSED`).
+  - Missing price on new items routed to `NOT_PROCESSED`.
+- **`tests/policy_amendment.test.js` (3 tests — 100% passed):**
+  - Parsing natural language amendment text into structured rules.
+  - Verified decision change between Policy v5.0 and Policy v5.1 for the same requirement without application code changes.
+  - Plant isolation (`CHK1` emergency limit adjusted to ₹300k while `PUN1` maintains baseline rules).
 
 ---
 
-## 5. API Reference
+## 5. REST API Reference
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
+| `GET` | `/api/health` | Service health check and uptime status |
 | `POST` | `/api/process-batch` | Accepts PR batch CSV (`file` or `csvData`), evaluates active policy, returns decisions JSON & CSV |
 | `POST` | `/api/export-decisions` | Exports decision records to 13-column CSV |
 | `POST` | `/api/chat/intake` | Conversational employee PR message processor & entity extractor |
@@ -150,45 +145,35 @@ npm test
 | `POST` | `/api/buyer/requirements/:id/approve` | Approves requirement decision |
 | `POST` | `/api/buyer/requirements/:id/override` | Overrides decision with mandatory written reason |
 | `GET` | `/api/buyer/audit-logs` | Retrieves full governance audit trail |
-| `POST` | `/api/data/seed` | Seeds database from private local kit or API payload |
+| `POST` | `/api/data/seed` | Seeds database from local kit or payload |
 
 ---
 
 ## 6. Output CSV Formats
 
-### Decisions CSV (13 Columns)
+### 13-Column Decisions CSV (Section 4 Schema)
 ```csv
 pr_no,pr_line,resolved_item_code,group_id,po_id,decision,route,supplier_id,unit_price,group_value_inr,suggested_supplier_ids,policy_version,reason
 ```
 
-### Preferred Supplier CSV
+### Preferred Supplier CSV (Section 3 Schema)
 ```csv
 item_code,rank,supplier_id,reference_price,top_3
 ```
 
 ---
 
-## 7. Data Privacy & GitHub Safety
-
-- The supplied task kit files (`Cantill_FullStack_Task_Kit/`, `master_data/`, `contracts/pdf/`, `pr_batches/`, `*.pdf`, `*.csv`) are protected by `.gitignore` and **must never be committed to GitHub**.
-- The only exception permitted is the `submission/` directory for the final blind test CSV outputs.
-- To seed the production database on a hosted deployment:
-  1. Trigger private seed API `POST /api/data/seed` with authorized token.
-  2. Or upload master data via the administrative UI.
-
----
-
-## 8. Blind Test Execution Workflow
+## 7. Blind Test Execution Workflow
 
 During the 2-hour blind test on **Thursday 19 November**:
 
 1. **Run 1 (Process Blind PR Batch under Policy v5.0):**
    - Upload the new test PR batch CSV in the **Batch Processing & Export** view (or use `POST /api/process-batch`).
    - Click **Download Decisions CSV**.
-   - Save file to the `submission/` folder as `<yourname>__run1.csv` (e.g. `vinay__run1.csv`).
+   - Save file to the `submission/` folder as `vinay__run1.csv`.
    - *CLI Alternative:*
      ```bash
-     node backend/src/scripts/exportDecisions.js path/to/blind_pr_batch.csv 5.0 submission/<yourname>__run1.csv
+     node backend/src/scripts/exportDecisions.js path/to/blind_pr_batch.csv 5.0 submission/vinay__run1.csv
      ```
 
 2. **Run 2 (Upload Policy Amendment & Reprocess):**
@@ -197,18 +182,18 @@ During the 2-hour blind test on **Thursday 19 November**:
    - Review the rule comparison diff.
    - Click **Approve & Activate** (activates Policy v5.1).
    - Return to **Batch Processing & Export**, select Policy v5.1, and reprocess the blind test batch.
-   - Download the decisions CSV and save to `submission/` as `<yourname>__run2.csv` (e.g. `vinay__run2.csv`).
+   - Download the decisions CSV and save to `submission/` as `vinay__run2.csv`.
    - *CLI Alternative:*
      ```bash
-     node backend/src/scripts/exportDecisions.js path/to/blind_pr_batch.csv 5.1 submission/<yourname>__run2.csv
+     node backend/src/scripts/exportDecisions.js path/to/blind_pr_batch.csv 5.1 submission/vinay__run2.csv
      ```
 
 3. **Export Preferred Supplier Lists:**
    - In the **Supplier Ranking Analytics** view, select the required date and click **Export Preferred CSV**.
-   - Save file to `submission/` as `<yourname>__preferred.csv` (e.g. `vinay__preferred.csv`).
+   - Save file to `submission/` as `vinay__preferred.csv`.
    - *CLI Alternative:*
      ```bash
-     node backend/src/scripts/exportPreferred.js 2026-11-01 submission/<yourname>__preferred.csv
+     node backend/src/scripts/exportPreferred.js 2026-11-01 submission/vinay__preferred.csv
      ```
 
 4. **Commit & Push Submission to GitHub (Before 12:00 Noon IST):**
@@ -217,3 +202,10 @@ During the 2-hour blind test on **Thursday 19 November**:
    git commit -m "Submit blind test output CSVs (run1, run2, preferred)"
    git push origin main
    ```
+
+---
+
+## 8. Data Privacy & Compliance
+
+- The original task kit data files (`master_data/`, `contracts/`, `pr_batches/`, `*.pdf`, `*.csv`) are protected by `.gitignore` and are **not committed to the repository**.
+- All documentation files (`README.md`, `APPROACH.md`, `DECISIONS.md`) and submission outputs strictly follow the assessment guidelines.

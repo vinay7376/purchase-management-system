@@ -133,10 +133,53 @@ Requirements retain their unique `group_id` while sharing the consolidated `po_i
 
 ---
 
-## 7. CSV Export Schema
+## 7. CSV Export Schema & Blind Test Deliverables
 
-The preferred supplier CSV export schema strictly implements Section 3 of the Brief:
-`item_code,rank,supplier_id,reference_price,top_3`
+The preferred supplier CSV export schema strictly implements the Blind Test instruction:
+`item_code, rank, supplier_id, reference_price` (top 3 per item)
 
-- `reference_price`: Most recent PO price in 548 days; if none, latest contract rate.
-- `top_3`: Boolean string (`true` if $\text{rank} \le 3$, else `false`), providing immediate visibility into preferred supplier tiering.
+- **Columns:** `item_code`, `rank`, `supplier_id`, `reference_price`.
+- **Top 3 Filtering:** Exactly ranks 1, 2, and 3 are retained for each catalog item.
+- **Reference Price:** Most recent PO unit price in 548 days; if none, latest contract rate.
+- **Exclusions:** Blocked and Inactive suppliers are excluded.
+
+---
+
+## 8. Blind Test Execution & Policy Amendment No. 1 (v5.1)
+
+### 8.1 Overview & Compliance
+The blind test was received on 19 November 2026 with:
+- `hidden_pr_batch.csv`: 190 PR lines raised between 23 Nov and 11 Dec 2026.
+- `Corvo_Policy_Amendment_1_v5.1.pdf`: Amendment No. 1 effective 1 December 2026, approved by CFO on 20 November 2026.
+
+**Strict Code Freeze Adherence:** In full compliance with challenge rules (*"Do NOT change your code... any code change after 10:00 AM will not be scored"*), **zero application code changes** were made to the procurement engine or API after the 10:00 AM cutoff. Policy v5.1 was uploaded, versioned, and activated purely as data within the data-driven engine.
+
+### 8.2 Policy Amendment No. 1 Engineering Translation
+1. **Change A1 (Packaging Spot Limit):**
+   - For items in the `Packaging` category, the spot PO limit under Rule 5.4 was reduced from ₹2,00,000 to ₹1,00,000.
+   - Packaging requirements $\ge ₹1,00,000$ must be sourced.
+   - Implemented via Rule `RULE_5.4_PKG` (Priority 6) for `category == 'Packaging'` with threshold $< 1,00,000$, and Rule `RULE_5.4` (Priority 7) for `category != 'Packaging'` with standard threshold $< 2,00,000$.
+2. **Change A2 (RFP Threshold Reduction):**
+   - Formal RFP threshold in Rules 5.5 and 5.6 was reduced from ₹10,00,000 to ₹8,00,000.
+   - Sourcing requirements $< ₹8,00,000 \to$ RFQ (suggest 3 suppliers); requirements $\ge ₹8,00,000 \to$ RFP (suggest 5 suppliers).
+3. **Change A3 (Rule 5.2A Chakan Electrical Safety):**
+   - Evaluated immediately after Rule 5.2 (Contract PO).
+   - If plant is `CHK1` and category is `Electrical Spares` with requirement value $\ge ₹50,000$: must be sourced via RFQ ($< ₹8,00,000$) or RFP ($\ge ₹8,00,000$), even if qualifying for emergency or spot PO.
+   - Valid contract POs under Rule 5.2 are preserved as explicitly permitted by the amendment.
+
+### 8.3 Data Edge Cases Identified in Hidden Batch
+1. **Invalid Manufacturing Plant (`PR-26-00675/1`):**
+   - Line `PR-26-00675/1` specifies plant `PUN2`.
+   - As established in Corvo's master policy and plant hierarchy, only `PUN1` (Bhosari) and `CHK1` (Chakan) are valid operating plants.
+   - The engine safely routes this line to `NOT_PROCESSED` with explicit reason: *"Invalid plant PUN2. Only PUN1 and CHK1 are valid."*
+2. **New Items Sourcing (`NEW_ITEM_SOURCING`):**
+   - Four lines in the hidden batch (`PR-26-00517`, `PR-26-00668`, `PR-26-00669`, `PR-26-00670`) represent new uncataloged items with user-provided estimated prices.
+   - The engine correctly routes them to `NEW_ITEM_SOURCING` under Clause 1.2, unclubbed, without auto-suggested suppliers (Clause 6.4).
+
+### 8.4 Policy v5.0 vs v5.1 Decision Diff Summary (24 Shifts)
+Processing the identical 190 lines under Policy v5.0 (`vinay__run1.csv`) versus Policy v5.1 (`vinay__run2.csv`) yields exactly **24 decision shifts**:
+- **10 Packaging Spot POs shifted to RFQ:** Lines `PR-26-00603`, `00604`, `00605`, `00606`, `00607`, `00608`, `00610`, `00671`, `00672`, `00673` (values between ₹1,23,453 and ₹1,93,490) shifted from `SPOT_PO` to `RFQ` under Change A1.
+- **8 Chakan Electrical Spares Spot POs shifted to RFQ:** Lines `PR-26-00611` through `PR-26-00618` (values between ₹80,491 and ₹1,63,137) shifted from `SPOT_PO` to `RFQ` under Rule 5.2A.
+- **1 Chakan Electrical Spares Emergency PO shifted to RFQ:** Line `PR-26-00558/1` (value ₹1,81,850.40) shifted from `EMERGENCY_PO` to `RFQ` under Rule 5.2A ("even if qualifying for emergency PO").
+- **5 High-Value Sourcing Lines shifted to RFP:** Lines `PR-26-00589`, `00622`, `00623`, `00625`, `00667` (values between ₹8,04,636 and ₹8,96,536) shifted from `RFQ` to `RFP` under Change A2 (RFP threshold reduced from 10L to 8L).
+
